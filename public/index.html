@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>InkSpace | Blog Platform</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id="toast" class="toast"></div>
+
+  <header class="topbar">
+    <a class="brand" href="#" onclick="showHome(); return false;">
+      <span class="brand-mark">✦</span><span>InkSpace</span>
+    </a>
+    <nav>
+      <button class="nav-link" onclick="showHome()">Home</button>
+      <button id="writeNav" class="nav-link hidden" onclick="openEditor()">Write</button>
+      <button id="loginNav" class="nav-link" onclick="openAuth('login')">Login</button>
+      <button id="registerNav" class="nav-link primary" onclick="openAuth('register')">Create account</button>
+      <button id="userNav" class="user-chip hidden" onclick="logout()">Logout</button>
+    </nav>
+  </header>
+
+  <main>
+    <section id="hero" class="hero">
+      <div>
+        <span class="eyebrow">TASK 04 • FULL-STACK DEVELOPMENT</span>
+        <h1>Ideas worth<br><span>sharing.</span></h1>
+        <p>Write thoughtful posts, discover new perspectives, and join the conversation through comments.</p>
+        <div class="hero-actions">
+          <button class="btn primary big" onclick="document.getElementById('posts').scrollIntoView({behavior:'smooth'})">Explore posts</button>
+          <button class="btn ghost big" onclick="openEditor()">Start writing</button>
+        </div>
+      </div>
+      <div class="hero-card">
+        <div class="mini-label">COMMUNITY</div>
+        <div class="quote">“A good idea becomes better when it starts a conversation.”</div>
+        <div class="hero-dots"><i></i><i></i><i></i></div>
+      </div>
+    </section>
+
+    <section id="posts" class="section">
+      <div class="section-heading">
+        <div><span class="eyebrow">LATEST STORIES</span><h2>Fresh from the community</h2></div>
+        <button class="btn ghost" onclick="loadPosts()">↻ Refresh</button>
+      </div>
+      <div id="postGrid" class="post-grid"></div>
+    </section>
+
+    <section id="editorSection" class="section hidden">
+      <div class="form-card">
+        <span class="eyebrow">CREATE CONTENT</span>
+        <h2 id="editorTitle">Write a new post</h2>
+        <form id="postForm">
+          <label>Title<input id="postTitle" maxlength="120" required placeholder="Give your post a clear title"></label>
+          <label>Content<textarea id="postContent" rows="10" maxlength="10000" required placeholder="Tell your story..."></textarea></label>
+          <div class="form-actions">
+            <button type="button" class="btn ghost" onclick="showHome()">Cancel</button>
+            <button class="btn primary" type="submit">Publish post</button>
+          </div>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <div id="authModal" class="modal hidden">
+    <div class="modal-box">
+      <button class="close" onclick="closeAuth()">×</button>
+      <div class="auth-brand">✦ InkSpace</div>
+      <h2 id="authTitle">Welcome back</h2>
+      <p id="authSubtitle">Log in to continue your writing journey.</p>
+      <form id="authForm">
+        <div id="nameField" class="hidden"><label>Name<input id="name" placeholder="Your name"></label></div>
+        <label>Email<input id="email" type="email" placeholder="you@example.com" required></label>
+        <label>Password<input id="password" type="password" minlength="6" placeholder="At least 6 characters" required></label>
+        <button class="btn primary full" type="submit" id="authSubmit">Login</button>
+      </form>
+      <button class="switch-auth" id="switchAuth" onclick="toggleAuthMode()">Create a new account</button>
+    </div>
+  </div>
+
+  <div id="detailModal" class="modal hidden">
+    <div class="modal-box detail-box">
+      <button class="close" onclick="closeDetail()">×</button>
+      <div id="detailContent"></div>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>

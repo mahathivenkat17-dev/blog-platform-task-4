@@ -1,0 +1,20 @@
+{
+  "name": "blog-platform-with-comments",
+  "version": "1.1.0",
+  "description": "Task 4 - Full-stack blog platform with authentication, CRUD posts, comments, REST APIs and SQLite database",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "cors": "^2.8.5",
+    "express": "^4.21.2",
+    "jsonwebtoken": "^9.0.2",
+    "sql.js": "^1.13.0"
+  }
+}
